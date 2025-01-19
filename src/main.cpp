@@ -10,9 +10,9 @@ int main()
 	using namespace std::literals::chrono_literals;
 	float timeElapsed = 0.0;
 	unsigned int count = 0;
-//	unsigned int timer = 1;
+	unsigned int timer = 1;
 	float totalTime = 0;
-	float frame = 1;
+	float frame = 10;
 	unsigned int tempPopulation = 0;
 	std::ofstream file;
 	std::list<Bunny*> list;
@@ -53,7 +53,7 @@ int main()
 	{
 		auto start = std::chrono::high_resolution_clock::now();
 
-		if(true)
+		if(timeElapsed > frame)
 		{
 
 			iter = list.begin();
@@ -127,7 +127,7 @@ int main()
 
 			if(Bunny::population > 1000)
 			{
-				tempPopulation = Bunny::population / 10;
+				tempPopulation = Bunny::population / 2;
 				
 				while(Bunny::population > tempPopulation)
 				{
@@ -159,7 +159,7 @@ int main()
 
 		timeElapsed += duration.count();
 
-		totalTime = totalTime + timeElapsed;
+		frame = frame - 0.001;
 	}
 
 	std::cout << totalTime << std::endl;
