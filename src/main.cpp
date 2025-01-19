@@ -162,7 +162,7 @@ int main()
 		frame = frame - 0.001;
 	}
 
-	std::cout << totalTime << std::endl;
+	std::cout << timeElapsed << std::endl;
 
 	return 0;
 }
