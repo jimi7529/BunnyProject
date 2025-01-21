@@ -159,7 +159,7 @@ int main()
 
 		timeElapsed += duration.count();
 
-		frame = frame - 0.001;
+		frame = frame - 0.01;
 	}
 
 	std::cout << timeElapsed << std::endl;
