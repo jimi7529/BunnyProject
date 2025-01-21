@@ -127,7 +127,7 @@ int main()
 
 			if(Bunny::population > 1000)
 			{
-				tempPopulation = Bunny::population / 2;
+				tempPopulation = Bunny::population / 4;
 				
 				while(Bunny::population > tempPopulation)
 				{
