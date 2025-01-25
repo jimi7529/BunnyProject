@@ -2,40 +2,16 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug BunnyProject",
-      "type": "cppdbg",
-      "request": "launch",
-      "program": "${workspaceFolder}/output",
-      "args": [],
-      "stopAtEntry": false,
-      "cwd": "${workspaceFolder}",
-      "environment": [],
-      "externalConsole": false,
-      "MIMode": "gdb",
-      "miDebuggerPath": "gdb",
-      "setupCommands": [
-        {
-          "description": "Enable pretty-printing for gdb",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
-        }
-      ],
-      "preLaunchTask": "build",
-      "logging": {
-        "engineLogging": true
-      }
-    },
-    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/alf29/Documents/TutorialProgrammazioneTesting/C++/Projects/BunnyProject/src",
-      "program": "c:/Users/alf29/Documents/TutorialProgrammazioneTesting/C++/Projects/BunnyProject/src/build/Debug/outDebug",
+      "cwd": "c:/Users/alf29/Documents/TutorialProgrammazioneTesting/C++/Projects/BunnyProject",
+      "program": "c:/Users/alf29/Documents/TutorialProgrammazioneTesting/C++/Projects/BunnyProject/output/main",
       "MIMode": "gdb",
-      "miDebuggerPath": "gdb",
+      "miDebuggerPath": "C:/MinGW/bin/gdb.exe",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
