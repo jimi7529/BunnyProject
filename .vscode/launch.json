@@ -2,30 +2,28 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug",
+      "name": "Debug BunnyProject",
       "type": "cppdbg",
       "request": "launch",
+      "program": "${workspaceFolder}/output",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],
       "externalConsole": false,
-      "linux": {
-        "MIMode": "gdb",
-        "miDebuggerPath": "gdb",
-        "program": "${workspaceFolder}/output/main"
-      },
-      "osx": {
-        "MIMode": "lldb",
-        "miDebuggerPath": "lldb-mi",
-        "program": "${workspaceFolder}/output/main"
-      },
-      "windows": {
-        "MIMode": "gdb",
-        "miDebuggerPath": "gdb.exe",
-        "program": "${workspaceFolder}/output/main.exe"
-      },
-      "preLaunchTask": "build"
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "build",
+      "logging": {
+        "engineLogging": true
+      }
     },
     {
       "name": "C/C++ Runner: Debug Session",
