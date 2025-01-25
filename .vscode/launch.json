@@ -34,8 +34,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/alf29/Desktop/C++/Projects/BunnyProject",
-      "program": "c:/Users/alf29/Desktop/C++/Projects/BunnyProject/build/Debug/outDebug",
+      "cwd": "c:/Users/alf29/Documents/TutorialProgrammazioneTesting/C++/Projects/BunnyProject/src",
+      "program": "c:/Users/alf29/Documents/TutorialProgrammazioneTesting/C++/Projects/BunnyProject/src/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
