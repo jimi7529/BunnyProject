@@ -27,7 +27,8 @@ INCLUDE	:= include
 LIB		:= lib
 
 ifeq ($(OS),Windows_NT)
-MAIN	:= main.exe
+MAIN		:= main.exe
+DEBUG_MAIN 	:= outDebug.exe
 SOURCEDIRS	:= $(SRC)
 INCLUDEDIRS	:= $(INCLUDE)
 LIBDIRS		:= $(LIB)
@@ -35,7 +36,8 @@ FIXPATH = $(subst /,\,$1)
 RM			:= del /q /f
 MD	:= mkdir
 else
-MAIN	:= main
+MAIN		:= main
+DEBUG_MAIN 	:= outDebug
 SOURCEDIRS	:= $(shell find $(SRC) -type d)
 INCLUDEDIRS	:= $(shell find $(INCLUDE) -type d)
 LIBDIRS		:= $(shell find $(LIB) -type d)
@@ -62,16 +64,23 @@ OBJECTS		:= $(SOURCES:.cpp=.o)
 # deleting dependencies appended to the file from 'make depend'
 #
 
-OUTPUTMAIN	:= $(call FIXPATH,$(OUTPUT)/$(MAIN))
+OUTPUTMAIN			:= $(call FIXPATH,$(OUTPUT)/$(MAIN))
+DEBUG_OUTPUTMAIN 	:= $(call FIXPATH,$(OUTPUT)/$(DEBUG_MAIN))
 
 all: $(OUTPUT) $(MAIN)
 	@echo Executing 'all' complete!
+
+debug: $(OUTPUT) $(DEBUG_OUTPUTMAIN)
+	@echo Executing 'debug' complete!
 
 $(OUTPUT):
 	$(MD) $(OUTPUT)
 
 $(MAIN): $(OBJECTS) 
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(OUTPUTMAIN) $(OBJECTS) $(LFLAGS) $(LIBS)
+
+#$(DEBUG_OUTPUTMAIN): $(OBJECTS)
+#   $(CXX) $(CXXFLAGS) $(INCLUDES) -o $(DEBUG_OUTPUTMAIN) $(OBJECTS) $(LFLAGS) $(LIBS)
 
 # this is a suffix replacement rule for building .o's from .c's
 # it uses automatic variables $<: the name of the prerequisite of
@@ -83,9 +92,14 @@ $(MAIN): $(OBJECTS)
 .PHONY: clean
 clean:
 	$(RM) $(OUTPUTMAIN)
+	$(RM) $(DEBUG_OUTPUTMAIN)
 	$(RM) $(call FIXPATH,$(OBJECTS))
 	@echo Cleanup complete!
 
 run: all
 	./$(OUTPUTMAIN)
 	@echo Executing 'run: all' complete!
+
+#run-debug: debug
+#    ./$(DEBUG_OUTPUTMAIN)
+#    @echo Executing 'run-debug' complete!
