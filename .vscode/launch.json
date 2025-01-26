@@ -7,6 +7,7 @@
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
+      "externalConsole": false,
       "cwd": "c:/Users/alf29/Documents/TutorialProgrammazioneTesting/C++/Projects/BunnyProject",
       "program": "c:/Users/alf29/Documents/TutorialProgrammazioneTesting/C++/Projects/BunnyProject/output/main",
       "MIMode": "gdb",
